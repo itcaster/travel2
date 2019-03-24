@@ -5,17 +5,24 @@
       <span class="iconfont">&#xe60b;</span>
       输入城市/景点/游玩主题
     </div>
-    <div class="header-right iconfont"><span>北京</span>&#xe61c;</div>
+    <router-link to="city">
+      <div class="header-right iconfont">
+        <!-- <span>{{this.$store.state.city}}</span>&#xe61c; -->
+        <span>{{this.city}}</span>&#xe61c;
+      </div>
+    </router-link>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
   data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+    return {}
+  },
+  computed: {
+    ...mapState(['city'])
   }
 }
 </script>
@@ -41,5 +48,7 @@ export default {
       text-indent .2rem
       border-radius .05rem
     .header-right
-      width 1.4rem
+      min-width 1rem
+      padding 0 .16rem
+      color #fff
 </style>
